@@ -88,8 +88,7 @@ jobs:
             -d '{"pname":"Updated CI Product","price":200,"quantity":10}' \
             -o update.json
           node -e "const p=require('./update.json'); if(p.pname!=='Updated CI Product'||p.price!==200||p.quantity!==10) process.exit(1)"
-
-      
+          
       - name: Test DELETE product
         run: |
           curl --fail --silent --show-error \
