@@ -21,9 +21,11 @@ mongoose.connect(process.env.MONGODB_URI)
     });
 
 // Kiểm tra API
+// Kiểm tra API và phiên bản triển khai
 app.get('/', (req, res) => {
     res.status(200).json({
-        message: 'Product API is running'
+        message: 'Product API is running',
+        version: '1.0.1'
     });
 });
 
