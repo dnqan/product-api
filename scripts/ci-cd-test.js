@@ -60,3 +60,12 @@ test("Product API CRUD test", async (t) => {
   await t.test("API OK", 
     async () => assert.strictEqual((await api("GET", "/")).status, 200));
 });
+
+// Hàm kiểm tra sản phẩm đã tồn tại hay chưa
+const PRODUCT_ID = "P999";
+
+async function checkProductExists() {
+  const res = await api("GET", `/api/products/${PRODUCT_ID}`);
+  console.log(res.status === 200 ? "Sản phẩm đã tồn tại" :
+              res.status === 404 ? "Sản phẩm chưa tồn tại" : "Lỗi API");
+}
