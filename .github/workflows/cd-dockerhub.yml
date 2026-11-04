@@ -1,3 +1,4 @@
+
 name: Product API CD Docker Hub
 
 on:
@@ -56,30 +57,3 @@ jobs:
           context: .
           push: true
           tags: dttnqan/product-api:latest
-
-  deploy-local:
-    needs: build-test-push
-
-    runs-on:
-      - self-hosted
-      - Windows
-      - X64
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Pull latest Docker image
-        shell: cmd
-        run: |
-          docker compose -f docker-compose-prod.yaml pull
-
-      - name: Deploy to Local Docker Engine
-        shell: cmd
-        run: |
-          docker compose -f docker-compose-prod.yaml up -d
-
-      - name: Check production containers
-        shell: cmd
-        run: |
-          docker compose -f docker-compose-prod.yaml ps
