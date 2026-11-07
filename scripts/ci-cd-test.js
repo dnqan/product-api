@@ -1,3 +1,4 @@
+// docker exec nammongodb mongosh productdb --eval "db.products.find().toArray()"
 const { test } = require("node:test");
 const assert = require("node:assert/strict");
 
@@ -60,9 +61,11 @@ test("Product API CRUD test", async (t) => {
   await t.test("API OK", 
     async () => assert.strictEqual((await api("GET", "/")).status, 200));
 });
+// await t.test("GET P111 after delete", async () =>
+//   assert.strictEqual((await api("GET", "/api/products/P111")).status, 404));
 
 // Hàm kiểm tra sản phẩm đã tồn tại hay chưa
-const PRODUCT_ID = "P306";
+const PRODUCT_ID = "P309";
 
 async function checkProductExists() {
   const res = await api("GET", `/api/products/${PRODUCT_ID}`);
