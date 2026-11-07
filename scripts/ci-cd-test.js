@@ -62,7 +62,7 @@ test("Product API CRUD test", async (t) => {
 });
 
 // Hàm kiểm tra sản phẩm đã tồn tại hay chưa
-const PRODUCT_ID = "P304";
+const PRODUCT_ID = "P306";
 
 async function checkProductExists() {
   const res = await api("GET", `/api/products/${PRODUCT_ID}`);
