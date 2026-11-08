@@ -65,7 +65,7 @@ test("Product API CRUD test", async (t) => {
 //   assert.strictEqual((await api("GET", "/api/products/P111")).status, 404));
 
 // Hàm kiểm tra sản phẩm đã tồn tại hay chưa
-const PRODUCT_ID = "P111";
+const PRODUCT_ID = "P999";
 
 async function checkProductExists() {
   const res = await api("GET", `/api/products/${PRODUCT_ID}`);
